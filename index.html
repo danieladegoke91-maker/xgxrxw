@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Rise Grants | Funding Small Businesses, Big Dreams</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- OFFICIAL BANNER -->
+  <div class="top-banner">
+    <span class="flag"></span>
+    <span>An official platform for global entrepreneurs. <strong>No fees. No bribes. Ever.</strong></span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>GLOBAL RISE GRANTS</h1>
+        <p>Funding Small Businesses, Big Dreams — In Every Country.</p>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>We Fund Entrepreneurs in 150+ Countries.</h2>
+    <p class="hero-sub">No Borders. No Bribes. No Fees.</p>
+    <p class="hero-desc">
+      From Lagos to Lima, Delhi to Detroit — if you have a real business and a real plan,
+      we have a grant for you. <strong>$1M+ disbursed monthly.</strong>
+    </p>
+    <div class="hero-buttons">
+      <a href="#programs" class="btn-primary">View Grant Programs</a>
+      <a href="#apply" class="btn-secondary">Apply Now</a>
+    </div>
+  </section>
+
+  <!-- LIVE COUNTER -->
+  <section class="counter">
+    <div class="counter-item">
+      <div class="counter-num">14,382</div>
+      <div class="counter-label">Businesses Funded</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num">92</div>
+      <div class="counter-label">Countries</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num">$42M</div>
+      <div class="counter-label">Disbursed</div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <span>Registered Nonprofit</span>
+    <span>•</span>
+    <span>Audited Annually</span>
+    <span>•</span>
+    <span>Partners: Mastercard Foundation, Google.org</span>
+    <span>•</span>
+    <span class="gold-text">4.8/5 on Trustpilot</span>
+  </section>
+
+  <!-- GRANT PROGRAMS -->
+  <section id="programs" class="programs">
+    <h2>Global Grant Programs</h2>
+    <p class="section-sub">Six programs designed to serve entrepreneurs at every stage, in every region.</p>
+
+    <div class="program-grid">
+      <div class="program-card">
+        <h3>Global Micro-Business Grant</h3>
+        <div class="amount">$1,000 – $10,000</div>
+        <p>Any small business under 2 years. Any country.</p>
+      </div>
+      <div class="program-card">
+        <h3>Women Entrepreneurs Worldwide</h3>
+        <div class="amount">$5,000 – $25,000</div>
+        <p>Women-led businesses (51%+ ownership). Priority: developing nations.</p>
+      </div>
+      <div class="program-card">
+        <h3>Youth Innovators Fund (18–35)</h3>
+        <div class="amount">$2,500 – $15,000</div>
+        <p>Students and young founders globally.</p>
+      </div>
+      <div class="program-card">
+        <h3>Cross-Border Trade Grant</h3>
+        <div class="amount">$10,000 – $50,000</div>
+        <p>Businesses ready to export or import.</p>
+      </div>
+      <div class="program-card">
+        <h3>Green &amp; Sustainable Business Grant</h3>
+        <div class="amount">$5,000 – $30,000</div>
+        <p>Eco-friendly and climate-positive businesses.</p>
+      </div>
+      <div class="program-card">
+        <h3>Emergency Recovery Grant</h3>
+        <div class="amount">$1,000 – $20,000</div>
+        <p>Businesses affected by disaster, pandemic, or conflict.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION FORM -->
+  <section id="apply" class="apply">
+    <h2>Apply for a Grant</h2>
+    <p class="section-sub">Fill this out honestly. All applications are reviewed by our regional team.</p>
+
+    <form id="applicationForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="country">Country *</label>
+          <input type="text" id="country" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone / WhatsApp *</label>
+          <input type="tel" id="phone" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="businessName">Business Name *</label>
+          <input type="text" id="businessName" required>
+        </div>
+        <div class="form-group">
+          <label for="program">Grant Program *</label>
+          <select id="program" required>
+            <option value="">-- Select a Program --</option>
+            <option value="micro-business">Global Micro-Business Grant</option>
+            <option value="women-entrepreneurs">Women Entrepreneurs Worldwide</option>
+            <option value="youth-innovators">Youth Innovators Fund</option>
+            <option value="cross-border-trade">Cross-Border Trade Grant</option>
+            <option value="green-sustainable">Green &amp; Sustainable Business Grant</option>
+            <option value="emergency-recovery">Emergency Recovery Grant</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="amount">Amount Requested (USD) *</label>
+          <input type="number" id="amount" min="1000" max="50000" required>
+        </div>
+        <div class="form-group">
+          <label for="revenue">12-Month Revenue Estimate (USD)</label>
+          <input type="number" id="revenue" min="0">
+        </div>
+      </div>
+
+      <div class="form-group full-width">
+        <label for="useOfFunds">How will you use the funds? (3 sentences max) *</label>
+        <textarea id="useOfFunds" rows="4" maxlength="500" required></textarea>
+      </div>
+
+      <div class="form-group full-width checkbox-group">
+        <label>
+          <input type="checkbox" id="agreeTerms" required>
+          I confirm all information is true, and I agree to impact reporting after 6 months.
+        </label>
+      </div>
+
+      <button type="submit" class="btn-primary">Submit Application</button>
+    </form>
+
+    <div id="formStatus" class="form-status"></div>
+  </section>
+
+  <!-- TRACK APPLICATION -->
+  <section class="track">
+    <h2>Track Your Application</h2>
+    <div class="track-box">
+      <input type="text" id="trackingInput" placeholder="Enter your tracking ID (e.g., GRG-123456)">
+      <button onclick="trackApplication()" class="btn-secondary">Check Status</button>
+    </div>
+    <div id="trackStatus" class="form-status"></div>
+  </section>
+
+  <!-- ANTI-FRAUD -->
+  <section class="anti-fraud">
+    <h3>🛡️ Our Anti-Fraud Promise</h3>
+    <p>We will <strong>NEVER</strong> ask for payment, gift cards, OTP, or crypto to release your grant.</p>
+    <p class="small">Report scams to <a href="mailto:report@globalrise.org">report@globalrise.org</a></p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Global Rise Grants. Independent foundation. Not affiliated with any government.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/config.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guidelines &amp; Help Desk | Global Rise Grants</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- TOP BANNER -->
+  <div class="top-banner">
+    <span class="flag"></span>
+    <span>An official platform for global entrepreneurs. <strong>No fees. No bribes. Ever.</strong></span>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>GLOBAL RISE GRANTS</h1>
+        <p>Support Center &amp; Filing Instructions</p>
+      </div>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="guidelines.html">Guidelines</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="guidelines-layout">
+
+    <!-- LEFT: POLICIES & COMPLIANCE -->
+    <section class="guidelines-main">
+      <div class="card">
+        <h2>Filing Instructions</h2>
+        <p>Before submitting your application, review the mandatory compliance configurations below:</p>
+
+        <h3>1. Registration Prerequisites</h3>
+        <ul>
+          <li><strong>Identity Verification:</strong> You must be 18 years or older with a valid government-issued ID.</li>
+          <li><strong>Business Documentation:</strong> Business registration is preferred but not mandatory for the Micro-Business Grant.</li>
+          <li><strong>File Formats:</strong> Supporting documents must be submitted as PDF or JPG. Each file cannot exceed 10MB.</li>
+        </ul>
+
+        <h3>2. Review Timelines</h3>
+        <p>Once a tracking chain is logged, our evaluation panels audit compliance strings. Applications transition through these stages:</p>
+        <ul>
+          <li><strong>Awaiting Audit:</strong> Your application is in the queue and awaiting review.</li>
+          <li><strong>Approved &amp; Committed:</strong> Your grant has passed review. Funds will be disbursed within 7–21 business days.</li>
+        </ul>
+
+        <h3>3. Use of Funds</h3>
+        <p>Grants may be used for equipment, inventory, marketing, training, technology, or any legitimate business expense. Grants may <strong>not</strong> be used for illegal activities, political campaigns, or personal luxury goods.</p>
+
+        <h3>4. Impact Reporting</h3>
+        <p>All grant recipients agree to report on the impact of the funds after 6 months. This is a condition of the grant and helps us improve the program.</p>
+      </div>
+
+      <div class="card">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is this really free?</h3>
+        <p>Yes. We will NEVER ask for payment, gift cards, OTP, or crypto to release your grant. If anyone asks, report them immediately.</p>
+
+        <h3>How long does review take?</h3>
+        <p>Standard review takes 15–20 business days. Priority review (for low-income countries) takes 10 business days. Emergency Recovery Grants are fast-tracked in 5–10 business days.</p>
+
+        <h3>Can I apply more than once?</h3>
+        <p>You can apply once every 6 months per email address.</p>
+
+        <h3>What if I don't have a business registered?</h3>
+        <p>You can still apply. We fund ideas and early-stage businesses too. Just be honest about your stage.</p>
+
+        <h3>How do I get paid?</h3>
+        <p>We disburse via Wise, Payoneer, direct bank transfer, or USDC stablecoin — your choice. No cash, no Western Union.</p>
+      </div>
+    </section>
+
+    <!-- RIGHT: HELP DESK -->
+    <aside class="guidelines-sidebar">
+      <div class="card">
+        <h2>Help Desk</h2>
+        <p class="small">Having trouble with your application? Submit a support ticket and our team will respond within 48 hours.</p>
+
+        <form id="helpDeskForm">
+          <div class="form-group">
+            <label for="techName">Full Name *</label>
+            <input type="text" id="techName" required>
+          </div>
+
+          <div class="form-group">
+            <label for="techEmail">Email Address *</label>
+            <input type="email" id="techEmail" required>
+          </div>
+
+          <div class="form-group">
+            <label for="issueType">Issue Category *</label>
+            <select id="issueType" required>
+              <option value="">-- Select --</option>
+              <option value="submission">Application Submission Error</option>
+              <option value="tracking">Tracking ID Not Working</option>
+              <option value="documents">Document Upload Problem</option>
+              <option value="payment">Payment / Disbursement Question</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="techMsg">Describe Your Issue *</label>
+            <textarea id="techMsg" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn-primary">Submit Ticket</button>
+        </form>
+
+        <div id="ticketStatus" class="form-status"></div>
+      </div>
+
+      <div class="card">
+        <h3>Contact Us Directly</h3>
+        <p class="small">
+          📧 <a href="mailto:support@globalrise.org">support@globalrise.org</a><br>
+          📧 <a href="mailto:report@globalrise.org">report@globalrise.org</a> (scam reports)
+        </p>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Global Rise Grants. Independent foundation. Not affiliated with any government.</p>
+  </footer>
+
+  <script src="js/config.js"></script>
+  <script>
+    document.getElementById('helpDeskForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = document.getElementById('ticketStatus');
+
+      const ticket = {
+        name: document.getElementById('techName').value.trim(),
+        email: document.getElementById('techEmail').value.trim(),
+        category: document.getElementById('issueType').value,
+        message: document.getElementById('techMsg').value.trim(),
+        created_at: new Date().toISOString()
+      };
+
+      if (!db) {
+        status.className = 'form-status error';
+        status.innerText = '⚠️ Database not connected.';
+        return;
+      }
+
+      try {
+        status.className = 'form-status';
+        status.innerText = '⏳ Submitting ticket...';
+
+        const { error } = await db.from('support_tickets').insert([ticket]);
+        if (error) throw error;
+
+        status.className = 'form-status success';
+        status.innerText = '✅ Ticket submitted! We will respond within 48 hours.';
+        document.getElementById('helpDeskForm').reset();
+      } catch (err) {
+        console.error(err);
+        status.className = 'form-status error';
+        status.innerText = `❌ Failed: ${err.message}`;
+      }
+    });
+  </script>
+
+</body>
+</html>
